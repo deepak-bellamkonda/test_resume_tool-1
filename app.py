@@ -44,8 +44,8 @@ if st.button("Submit"):
                 text = ""
                 for page_num in range(len(pdf_reader.pages)):
                     page = pdf_reader.pages[page_num]
-                    text += page.extract_text()
-                    #text = "\n".join([text,page.extract_text()])
+                    #text += page.extract_text()
+                    text = "\n".join([text,page.extract_text()])
 
                 st.write(text)
 
