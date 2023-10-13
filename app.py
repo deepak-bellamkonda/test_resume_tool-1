@@ -4,11 +4,13 @@ import streamlit as st
 import requests
 from PyPDF2 import PdfReader
 import openai
+
 import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
 api_key =  st.secrets['OPENAI_API_KEY']
+
 st.markdown("""
 <style>
 /* CSS for the title container */
