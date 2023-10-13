@@ -74,7 +74,7 @@ if st.button("Submit"):
             output = response.choices[0].text.strip()
             format="Segmentation :"
             st.header(format)
-            st.write(outputs)
+            st.write(output)
 
             #Current Role
             prompt_2=list_of_prompts[1] + output
