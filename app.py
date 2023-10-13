@@ -60,7 +60,7 @@ if st.button("Submit"):
             prompt6 = "Extract the extracurricular activities from the above resume. Extracurricular activities are the activities not part of professional or educational activities. These are usually hobbies, and other activities done for fun. Limit to displaying only 5 activities if there are too many extracurriculars. Only show a heading for each extracurricular activity. If there are no such activities,display '''No Extracurriculars''' and ask the user to enter the activities in any of the following categories Cultural,Volunteer,Musical activities,Miscellaneous,Sports"
             prompt7 = "Extract the work experience from the resume and and put it in chronological order"
     
-            list_of_prompts=[prompt1,prompt2,prompt3,prompt4,prompt5,prompt6]
+            list_of_prompts=[prompt1,prompt2,prompt3,prompt4,prompt5,prompt6,prompt7]
           
             #Resume Segmentation
             prompt_1=list_of_prompts[0] + text
