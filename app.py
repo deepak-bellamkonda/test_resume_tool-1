@@ -58,6 +58,7 @@ if st.button("Submit"):
             prompt4 = "Extract the educational background from this and ask the users if any of the following missing entries Degree,Institution ,GPA/Percentage ,Year for each education are present. and don't give me any extra suggestions "
             prompt5 = "Extract the skills from the above resume and make sure that the skills are relevant for management consulting resumes. Remove the skills that are not relevant. If no skills match the description, ask the user to enter at least three skills. Limit the skills to 4 and each skill should not exceed 3 words.If skills are lacking, suggest new skills."
             prompt6 = "Extract the extracurricular activities from the above resume. Extracurricular activities are the activities not part of professional or educational activities. These are usually hobbies, and other activities done for fun. Limit to displaying only 5 activities if there are too many extracurriculars. Only show a heading for each extracurricular activity. If there are no such activities,display '''No Extracurriculars''' and ask the user to enter the activities in any of the following categories Cultural,Volunteer,Musical activities,Miscellaneous,Sports"
+            prompt7 = "Extract the work experience from the resume and and put it in chronological order"
     
             list_of_prompts=[prompt1,prompt2,prompt3,prompt4,prompt5,prompt6]
           
@@ -128,6 +129,18 @@ if st.button("Submit"):
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_6,
+                   max_tokens=1867,  # You can adjust the number of tokens as needed
+                   api_key=api_key
+                   )
+            outputs = response.choices[0].text.strip()
+            format="Your Extracurriculars are as follows : "
+            st.header(format)
+            st.write(outputs)
+
+            prompt_7=list_of_prompts[6] + output
+            response = openai.Completion.create(
+                   engine="text-davinci-002",
+                   prompt=prompt_7,
                    max_tokens=1867,  # You can adjust the number of tokens as needed
                    api_key=api_key
                    )
