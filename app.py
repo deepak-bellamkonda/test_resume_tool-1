@@ -4,7 +4,7 @@ import streamlit as st
 import requests
 from PyPDF2 import PdfReader
 import openai
-api_key = "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"
+api_key = "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"
 st.markdown("""
 <style>
 /* CSS for the title container */
