@@ -72,6 +72,9 @@ if st.button("Submit"):
                    api_key=api_key
                    )
             output = response.choices[0].text.strip()
+            format="Segmentation :"
+            st.header(format)
+            st.write(outputs)
 
             #Current Role
             prompt_2=list_of_prompts[1] + output
