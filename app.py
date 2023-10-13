@@ -8,7 +8,7 @@ import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
-api_key = OPENAI_API_KEY
+api_key =  st.secrets['OPENAI_API_KEY']
 st.markdown("""
 <style>
 /* CSS for the title container */
