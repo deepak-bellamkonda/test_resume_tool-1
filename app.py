@@ -89,8 +89,8 @@ if st.button("Submit"):
             st.header(format)
             st.write(outputs)
             
-           ''' #Work Summary
-            prompt_3=list_of_prompts[2] + output
+           #Work Summary
+            '''prompt_3=list_of_prompts[2] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_3,
