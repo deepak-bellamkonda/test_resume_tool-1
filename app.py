@@ -113,7 +113,7 @@ if st.button("Submit"):
             st.write(outputs)
 
             #Skills
-            '''prompt_5=list_of_prompts[4] + output
+            prompt_5=list_of_prompts[4] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_5,
@@ -126,7 +126,7 @@ if st.button("Submit"):
             st.write(outputs)
 
             #Extracurriculars
-            prompt_6=list_of_prompts[5] + output
+            '''prompt_6=list_of_prompts[5] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_6,
