@@ -46,7 +46,7 @@ if st.button("Submit"):
                      page = pdf_reader.pages[page_num]
                      text += page.extract_text()
 
-                #st.write(text)
+                st.write(text)
 
                 #st.write(decoded_content)
             else:
