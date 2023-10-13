@@ -54,7 +54,7 @@ if st.button("Submit"):
                 st.write("Error occured,please Try again!")
 
             prompt1 = "Look at the resume given.  Show each data under its relevant heading in json format. The resume is :"
-            prompt2 = "Extract the current role from the resume, and display it in json format including the role, the company, and the duration"
+            prompt2 = "Extract the current role from the resume, and display it in this format : the role, the company, and the duration"
             prompt3 = "Extract the work summary/description from the above and display the following :- 1. Work Description 2. Years of experience.if not ask the user to enter 3. Industries worked in.Then rephrase the 1st point above to include the years of experience, industries worked in,so that it showcases the following values : Personal Impact,Entrepreneurial Drive,Inclusive Leadership,Courageous Change, Problem Solving, Expertise. Do not repeat the values as they are, and it need not include all the values.Do not add any unknown information, do not repeat phrases. Limit the description to less than 50 words"
             prompt4 = "Extract the educational background from this and ask the users if any of the following missing entries Degree,Institution ,GPA/Percentage ,Year for each education are present. and don't give me any extra suggestions "
             prompt5 = "Extract the skills from the above resume and make sure that the skills are relevant for management consulting resumes. Remove the skills that are not relevant. If no skills match the description, ask the user to enter at least three skills. Limit the skills to 4 and each skill should not exceed 3 words.If skills are lacking, suggest new skills."
