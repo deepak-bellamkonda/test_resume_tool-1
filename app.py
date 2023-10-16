@@ -34,7 +34,7 @@ st.markdown("<div class='title-container'><p class='title-text'>Resume Recommend
 st.write("Please upload your resume in PDF format.")
 uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
 
-if st.button("Submit"):
+if st.button("Submit",key=0):
             if uploaded_file is not None:
                 st.success("You have successfully uploaded your resume:wink::wink:.")
                 st.header("Resume content")
@@ -96,7 +96,7 @@ if st.button("Submit"):
             selected_option = st.radio("Select an option", ["Option 1", "Option 2", "Option 3"])
 
             # Create a submit button
-            if st.button("Submit"):
+            if st.button("Submit",key=1):
                 # Display the selected option when the submit button is clicked
                 st.write(f"Selected Option: {selected_option}")
     
