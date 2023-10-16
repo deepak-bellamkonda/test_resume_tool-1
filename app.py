@@ -77,11 +77,11 @@ if st.button("Submit"):
             st.header(format)
             st.write(current_role)
             
-           #Work Summary - Display
+            #Work Summary - Display
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                { "role": "system","content": prompt_summary_display,
+                { "role": "system","content": prompt_summary_display},
                 {"role": "user","content": segment}
                 ],
                 temperature = 0
