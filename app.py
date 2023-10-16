@@ -51,8 +51,24 @@ if st.button("Submit"):
             else:
                 st.write("Error occured,please Try again!")
 
+            #test
+            genre = st.radio(
+                "What's your favorite movie genre",
+                [
+                    ":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"
+                ],
+                captions = [
+                    "Laugh out loud.", "Get the popcorn.", "Never stop learning."
+                ]
+            )
+
+            if genre == ':rainbow[Comedy]':
+                st.write('You selected comedy.')
+            else:
+                st.write("You didn\'t select comedy.")
+            
             #Resume Segmentation
-            response = completion.create(
+            '''response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt1},
@@ -111,7 +127,7 @@ if st.button("Submit"):
             st.write(rewrite_summary)
     
             #Educational Background
-            '''prompt_4=list_of_prompts[3] + output
+            prompt_4=list_of_prompts[3] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_4,
