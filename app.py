@@ -73,11 +73,13 @@ if st.button("Submit"):
             )
     
             current_role = response.choices[0]['message']['content']
-            format="The current role you are working in :"
-            st.header(format)
+            h1 ="Current Role"
+            sh1 = "What you have written"
+            st.header(h1)
+            st.subheader(sh1)
             st.write(current_role)
             
-            #Work Summary - Display
+            #Work Summary
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -88,25 +90,40 @@ if st.button("Submit"):
             )
     
             summary = response.choices[0]['message']['content']
-            format="Your work summary is :"
-            st.header(format)
-            st.write(summary)
-    
-            #Work Summary - Rewrite
-            '''prompt_summary_rewrite += suggest_summary
+            
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    { "role": "system","content": prompt_summary_rewrite},
-                    {"role": "user","content": summary}
+                { "role": "system","content": prompt_summary_rewrite},
+                {"role": "user","content": summary}
                 ],
                 temperature = 0
             )
+    
+            summary_rewrite = response.choices[0]['message']['content']
+
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_summary_suggest},
+                {"role": "user","content": summary_rewrite}
+                ],
+                temperature = 0
+            )
+    
+            summary_suggest = response.choices[0]['message']['content']
             
-            rewrite_summary = response.choices[0]['message']['content']
-            format="Your rewritten work summary is :"
-            st.header(format)
-            st.write(rewrite_summary)'''
+            h1 ="Work Summary"
+            sh1 = "What you have written"
+            sh2 = "What we suggest"
+            sh3 = "Further Improvements"
+            st.header(h1)
+            st.subheader(sh1)
+            st.write(summary)
+            st.write(sh2)
+            st.write(summary_rewrite)
+            st.write(sh3)
+            st.write(summary_suggest)
     
             #Educational Background
             response = completion.create(
@@ -119,10 +136,41 @@ if st.button("Submit"):
             )
     
             education = response.choices[0]['message']['content']
-            format="Your education details are :"
-            st.header(format)
-            st.write(education)
+            
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_education_rewrite},
+                {"role": "user","content": education}
+                ],
+                temperature = 0
+            )
+    
+            education_rewrite = response.choices[0]['message']['content']
 
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_education_suggest},
+                {"role": "user","content": education_rewrite}
+                ],
+                temperature = 0
+            )
+    
+            education_suggest = response.choices[0]['message']['content']
+            
+            h1 ="Education"
+            sh1 = "What you have written"
+            sh2 = "What we suggest"
+            sh3 = "Further Improvements"
+            st.header(h1)
+            st.subheader(sh1)
+            st.write(education)
+            st.write(sh2)
+            st.write(education_rewrite)
+            st.write(sh3)
+            st.write(education_suggest)
+    
             #Skills
             response = completion.create(
                 model="gpt-3.5-turbo",
@@ -134,10 +182,41 @@ if st.button("Submit"):
             )
     
             skills = response.choices[0]['message']['content']
-            format="Your skills are :"
-            st.header(format)
-            st.write(skills)
+            
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_skills_rewrite},
+                {"role": "user","content": skills}
+                ],
+                temperature = 0
+            )
+    
+            skills_rewrite = response.choices[0]['message']['content']
 
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_skills_suggest},
+                {"role": "user","content": skills_rewrite}
+                ],
+                temperature = 0
+            )
+    
+            skills_suggest = response.choices[0]['message']['content']
+            
+            h1 ="Skills"
+            sh1 = "What you have written"
+            sh2 = "What we suggest"
+            sh3 = "Further Improvements"
+            st.header(h1)
+            st.subheader(sh1)
+            st.write(skills)
+            st.write(sh2)
+            st.write(skills_rewrite)
+            st.write(sh3)
+            st.write(skills_suggest)
+    
             #Extracurriculars
             response = completion.create(
                 model="gpt-3.5-turbo",
@@ -149,8 +228,37 @@ if st.button("Submit"):
             )
     
             extra = response.choices[0]['message']['content']
-            format="Your extracurriculars are :"
-            st.header(format)
+            
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_extra_rewrite},
+                {"role": "user","content": extra}
+                ],
+                temperature = 0
+            )
+    
+            extra_rewrite = response.choices[0]['message']['content']
+
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_extra_suggest},
+                {"role": "user","content": summary}
+                ],
+                temperature = 0
+            )
+    
+            extra_suggest = response.choices[0]['message']['content']
+            
+            h1 ="Extracurriculars"
+            sh1 = "What you have written"
+            sh2 = "What we suggest"
+            sh3 = "Further Improvements"
+            st.header(h1)
+            st.subheader(sh1)
             st.write(extra)
-
-
+            st.write(sh2)
+            st.write(extra_rewrite)
+            st.write(sh3)
+            st.write(extra_suggest)
