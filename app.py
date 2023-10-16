@@ -52,7 +52,7 @@ if st.button("Submit"):
                 st.write("Error occured,please Try again!")
             
             #Resume Segmentation
-            response = completion.create(
+            '''response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_segment},
@@ -63,7 +63,7 @@ if st.button("Submit"):
             segment = response.choices[0]['message']['content']
     
             #Current Role
-            '''response = completion.create(
+            response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_currentrole_display},
