@@ -51,8 +51,8 @@ if st.button("Submit"):
                 st.write("Error occured,please Try again!")
 
             prompt1 = "Look at the resume given.  Show each data under its relevant heading in json format. The resume is :"
-            prompt2 = "You are a json analuzer. Extract and display the current role/most recent role this json made from resume has. Only display the role name, the company, and the duration for one role. Each heading should be in a different line"
-            prompt3 = "Extract and display the details of the person's current role or most recent role, including the Role Name, Company, and Duration in json format. If there's no end date specified for the current role, assume it's an ongoing role. Only display this for one role. The data is : "
+            prompt2 = "You are a json analyzer. Extract and display the current role/most recent role this json made from resume has. Only display the role name, the company, and the duration for one role in human readable format. Each heading should be in a different line"
+            prompt3 = "You are a json analyzer. Extract and display the work summary/profile summary this json made from resume has. If no summary exists show 'No summary in the resume'. Only show the summary text in a human readable format."
             prompt4 = "Write a first person work profile/summary from the data given so that it showcases the following values : Personal Impact,Entrepreneurial Drive,Inclusive Leadership,Courageous Change, Problem Solving, Expertise. Do not repeat the values as they are, and it need not include all the values. Limit to less than 50 words. Do not use repetitive sentence structures. The data is :"
             prompt5 = "extract the specified details from the JSON data and format the output so that it lists the Degree, Institute Name, Year of Graduation, and Grade for each educational experience in json. Ensure that you use only the data present in the JSON file and do not create or guess information. The data is : "
             prompt6 = "Extract the skills from the JSON data and then list up to four skills that are most relevant to a consulting role based on the information provided in the document in json format. If less than 4 relevant skills exist, suggest some skills they can list in a consulting resume in another json format. The data is : "
@@ -86,20 +86,22 @@ if st.button("Submit"):
             st.write(current_role)
             
            #Work Summary
-            '''prompt_3=list_of_prompts[2] + output
-            response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_3,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
-                   )
-            outputs = response.choices[0].text.strip()
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt3},
+                {"role": "user","content": segment}
+                ],
+                temperature = 0
+            )
+    
+            current_role = response.choices[0]['message']['content']
             format="Your work summary is :"
             st.header(format)
             st.write(outputs)
 
             #Educational Background
-            prompt_4=list_of_prompts[3] + output
+            '''prompt_4=list_of_prompts[3] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_4,
