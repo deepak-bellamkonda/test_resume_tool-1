@@ -34,7 +34,7 @@ st.markdown("<div class='title-container'><p class='title-text'>Resume Recommend
 st.write("Please upload your resume in PDF format.")
 uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
 
-if st.button("Submit",key=0):
+if st.button("Submit"):
             if uploaded_file is not None:
                 st.success("You have successfully uploaded your resume:wink::wink:.")
                 st.header("Resume content")
@@ -52,7 +52,7 @@ if st.button("Submit",key=0):
                 st.write("Error occured,please Try again!")
             
             #Resume Segmentation
-            '''response = completion.create(
+            response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_segment},
@@ -90,36 +90,10 @@ if st.button("Submit",key=0):
             summary = response.choices[0]['message']['content']
             format="Your work summary is :"
             st.header(format)
-            st.write(summary)'''
-
-            # Create a radio button input
-            selected_option = st.radio("Select an option", ["Option 1", "Option 2", "Option 3"])
-
-            # Create a submit button
-            if st.button("Submit",key=1):
-                # Display the selected option when the submit button is clicked
-                st.write(f"Selected Option: {selected_option}")
-    
-            #Work Summary - Suggest
-            '''with st.form("my_form"):
-               suggest_summary = st.radio(
-                "How do you wish to rewrite the summary?",
-                [
-                    " Make it data heavy with blanks to supply data",
-                    " Highlight the soft skills of the resume",
-                    " Highlight the industry diversity and experience"
-                ]
-               )
-
-               # Every form must have a submit button.
-               submitted = st.form_submit_button("Submit")
-               if submitted:
-                   suggest_summary = (suggest_summary)
-
-            st.write(suggest_summary)
+            st.write(summary)
     
             #Work Summary - Rewrite
-            prompt_summary_rewrite += suggest_summary
+            '''prompt_summary_rewrite += suggest_summary
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -132,58 +106,51 @@ if st.button("Submit",key=0):
             rewrite_summary = response.choices[0]['message']['content']
             format="Your rewritten work summary is :"
             st.header(format)
-            st.write(rewrite_summary)
+            st.write(rewrite_summary)'''
     
             #Educational Background
-            prompt_4=list_of_prompts[3] + output
-            response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_4,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
-                   )
-            outputs = response.choices[0].text.strip()
-            format="Your Educational Details are as follows : "
+             response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_education_display},
+                {"role": "user","content": segment}
+                ],
+                temperature = 0
+            )
+    
+            education = response.choices[0]['message']['content']
+            format="Your education details are :"
             st.header(format)
-            st.write(outputs)
+            st.write(education)
 
             #Skills
-            prompt_5=list_of_prompts[4] + output
-            response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_5,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
-                   )
-            outputs = response.choices[0].text.strip()
-            format="Your skills are as follows :"
+             response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_skils_display},
+                {"role": "user","content": segment}
+                ],
+                temperature = 0
+            )
+    
+            skills = response.choices[0]['message']['content']
+            format="Your skills are :"
             st.header(format)
-            st.write(outputs)
+            st.write(skills)
 
             #Extracurriculars
-            prompt_6=list_of_prompts[5] + output
-            response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_6,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
-                   )
-            outputs = response.choices[0].text.strip()
-            format="Your Extracurriculars are as follows : "
+             response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_extra_display},
+                {"role": "user","content": segment}
+                ],
+                temperature = 0
+            )
+    
+            extra = response.choices[0]['message']['content']
+            format="Your extracurriculars are :"
             st.header(format)
-            st.write(outputs)
-
-            prompt_7=list_of_prompts[6] + output
-            response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_7,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
-                   )
-            outputs = response.choices[0].text.strip()
-            format="Your Extracurriculars are as follows : "
-            st.header(format)
-            st.write(outputs)'''
-
+            st.write(extra)
 
 
