@@ -44,14 +44,14 @@ if st.button("Submit"):
                     #text += page.extract_text()
                     text = "\n".join([text,page.extract_text()])
 
-                st.write(text)
+                #st.write(text)
 
                 #st.write(decoded_content)
             else:
                 st.write("Error occured,please Try again!")
 
             prompt1 = "Look at the resume given.  Show each data under its relevant heading in json format. The resume is :"
-            prompt2 = "You are a json analuzer. Extract and display the current role/most recent role this json made from resume has. Only display the role name, the company, and the duration for one role."
+            prompt2 = "You are a json analuzer. Extract and display the current role/most recent role this json made from resume has. Only display the role name, the company, and the duration for one role. Each heading should be in a different line"
             prompt3 = "Extract and display the details of the person's current role or most recent role, including the Role Name, Company, and Duration in json format. If there's no end date specified for the current role, assume it's an ongoing role. Only display this for one role. The data is : "
             prompt4 = "Write a first person work profile/summary from the data given so that it showcases the following values : Personal Impact,Entrepreneurial Drive,Inclusive Leadership,Courageous Change, Problem Solving, Expertise. Do not repeat the values as they are, and it need not include all the values. Limit to less than 50 words. Do not use repetitive sentence structures. The data is :"
             prompt5 = "extract the specified details from the JSON data and format the output so that it lists the Degree, Institute Name, Year of Graduation, and Grade for each educational experience in json. Ensure that you use only the data present in the JSON file and do not create or guess information. The data is : "
@@ -65,7 +65,8 @@ if st.button("Submit"):
                 messages=[
                 { "role": "system","content": prompt1},
                 {"role": "user","content": text}
-                ]
+                ],
+                temperature = 0
             )
             segment = response.choices[0]['message']['content']
     
@@ -75,7 +76,8 @@ if st.button("Submit"):
                 messages=[
                 { "role": "system","content": prompt2},
                 {"role": "user","content": segment}
-                ]
+                ],
+                temperature = 0
             )
     
             current_role = response.choices[0]['message']['content']
