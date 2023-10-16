@@ -66,12 +66,13 @@ if st.button("Submit"):
                 'role': 'user',
                 'content': text
             }]
-            response = completion.create(
-                   engine="gpt-3.5-turbo",
-                   messages = prompt_1
-                   )
-            output = response.choices[0].text.strip()
+            response = openai.Completion.create(
+                engine="gpt-3.5-turbo",
+                messages=prompt_1
+            )
 
+            output = response.choices[0].text.strip()
+    
             #Current Role
             '''prompt_2=list_of_prompts[1] + output
             response = openai.Completion.create(
