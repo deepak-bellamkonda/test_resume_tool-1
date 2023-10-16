@@ -63,7 +63,7 @@ if st.button("Submit"):
             segment = response.choices[0]['message']['content']
     
             #Current Role
-            response = completion.create(
+            '''response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_currentrole_display},
@@ -90,38 +90,44 @@ if st.button("Submit"):
             summary = response.choices[0]['message']['content']
             format="Your work summary is :"
             st.header(format)
-            st.write(summary)
+            st.write(summary)'''
 
             #Work Summary - Suggest
-            suggest_summary = st.radio(
+            with st.form("my_form"):
+               suggest_summary = st.radio(
                 "How do you wish to rewrite the summary?",
                 [
                     " Make it data heavy with blanks to supply data",
                     " Highlight the soft skills of the resume",
                     " Highlight the industry diversity and experience"
                 ]
-            )
+               )
 
-            if st.button("Submit"):
+               # Every form must have a submit button.
+               submitted = st.form_submit_button("Submit")
+               if submitted:
+                   suggest_summary = (suggest_summary)
+
+            st.write(suggest_summary)
     
             #Work Summary - Rewrite
-                prompt_summary_rewrite += suggest_summary
-                response = completion.create(
-                    model="gpt-3.5-turbo",
-                    messages=[
+            '''prompt_summary_rewrite += suggest_summary
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
                     { "role": "system","content": prompt_summary_rewrite},
                     {"role": "user","content": summary}
-                    ],
-                    temperature = 0
-                )
-        
-                rewrite_summary = response.choices[0]['message']['content']
-                format="Your rewritten work summary is :"
-                st.header(format)
-                st.write(rewrite_summary)
+                ],
+                temperature = 0
+            )
+            
+            rewrite_summary = response.choices[0]['message']['content']
+            format="Your rewritten work summary is :"
+            st.header(format)
+            st.write(rewrite_summary)
     
             #Educational Background
-            '''prompt_4=list_of_prompts[3] + output
+            prompt_4=list_of_prompts[3] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_4,
