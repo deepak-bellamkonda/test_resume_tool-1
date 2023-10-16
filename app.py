@@ -9,7 +9,8 @@ import os
 
 os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
-api_key =  st.secrets['OPENAI_API_KEY']
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+completion = openai.ChatCompletion()
 
 st.markdown("""
 <style>
@@ -60,8 +61,6 @@ if st.button("Submit"):
             prompt5 = "Extract the skills from the JSON data and then list up to four skills that are most relevant to a consulting role based on the information provided in the document in json format. If less than 4 relevant skills exist, suggest some skills they can list in a consulting resume in another json format. The data is : "
             prompt6 = "Extract the extracurricular activities from the above resume. Extracurricular activities are the activities not part of professional or educational activities. These are usually hobbies, and other activities done for fun. Limit to displaying only 5 activities if there are too many extracurriculars. Only show a heading for each extracurricular activity. If there are no such activities,display '''No Extracurriculars''' and ask the user to enter the activities in any of the following categories Cultural,Volunteer,Musical activities,Miscellaneous,Sports"
             prompt7 = "Extract the work experience from the resume and and put it in chronological order"
-    
-            list_of_prompts=[prompt1,prompt2,prompt3,prompt4,prompt5,prompt6,prompt7]
           
             #Resume Segmentation
             prompt_1=[{
@@ -71,11 +70,9 @@ if st.button("Submit"):
                 'role': 'user',
                 'content': text
             }]
-            response = openai.Completion.create(
+            response = completion.create(
                    engine="gpt-3.5-turbo",
-                   messages = prompt_1,
-                   max_tokens=1867,  # You can adjust the number of tokens as needed
-                   api_key=api_key
+                   messages = prompt_1
                    )
             output = response.choices[0].text.strip()
 
