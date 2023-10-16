@@ -64,17 +64,23 @@ if st.button("Submit"):
             list_of_prompts=[prompt1,prompt2,prompt3,prompt4,prompt5,prompt6,prompt7]
           
             #Resume Segmentation
-            prompt_1=list_of_prompts[0] + text
+            prompt_1=[{
+                'role': 'system',
+                'content': prompt1,
+            },{
+                'role': 'user',
+                'content': text
+            }]
             response = openai.Completion.create(
-                   engine="text-davinci-002",
-                   prompt=prompt_1,
+                   engine="gpt-3.5-turbo",
+                   messages = prompt_1,
                    max_tokens=1867,  # You can adjust the number of tokens as needed
                    api_key=api_key
                    )
             output = response.choices[0].text.strip()
 
             #Current Role
-            prompt_2=list_of_prompts[1] + output
+            '''prompt_2=list_of_prompts[1] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_2,
@@ -126,7 +132,7 @@ if st.button("Submit"):
             st.write(outputs)
 
             #Extracurriculars
-            '''prompt_6=list_of_prompts[5] + output
+            prompt_6=list_of_prompts[5] + output
             response = openai.Completion.create(
                    engine="text-davinci-002",
                    prompt=prompt_6,
