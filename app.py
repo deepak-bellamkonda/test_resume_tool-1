@@ -4,7 +4,7 @@ import streamlit as st
 import requests
 from PyPDF2 import PdfReader
 import openai
-import * from prompts
+import all from prompts
 
 openai.api_key = st.secrets['OPENAI_API_KEY']
 completion = openai.ChatCompletion()
