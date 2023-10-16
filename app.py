@@ -56,7 +56,9 @@ if st.button("Submit"):
                 "What's your favorite movie genre",
                 [
                     ":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"
-                ])
+                ],
+                index = None
+            )
             st.write(genre)
             
             #Resume Segmentation
