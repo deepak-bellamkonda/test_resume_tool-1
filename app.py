@@ -61,7 +61,6 @@ if st.button("Submit"):
                 temperature = 0
             )
             segment = response.choices[0]['message']['content']
-            st.write(segment)
     
             #Current Role
             response = completion.create(
@@ -245,7 +244,7 @@ if st.button("Submit"):
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_extra_suggest},
-                {"role": "user","content": summary}
+                {"role": "user","content": extra_rewrite}
                 ],
                 temperature = 0
             )
