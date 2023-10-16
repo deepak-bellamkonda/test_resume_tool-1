@@ -57,7 +57,7 @@ if st.button("Submit"):
                 [
                     ":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"
                 ],
-                index = None
+                None
             )
             st.write(genre)
             
