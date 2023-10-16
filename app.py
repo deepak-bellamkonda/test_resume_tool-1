@@ -57,11 +57,7 @@ if st.button("Submit"):
                 [
                     ":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"
                 ])
-
-            if genre == ':rainbow[Comedy]':
-                st.write('You selected comedy.')
-            else:
-                st.write("You didn\'t select comedy.")
+            st.write(genre)
             
             #Resume Segmentation
             '''response = completion.create(
