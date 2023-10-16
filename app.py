@@ -54,12 +54,10 @@ if st.button("Submit"):
             #test
             genre = st.radio(
                 "What's your favorite movie genre",
-                [
-                    ":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"
-                ],
-                None
+                [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
+                index=None,
             )
-            st.write(genre)
+            st.write("You selected:", genre)
             
             #Resume Segmentation
             '''response = completion.create(
