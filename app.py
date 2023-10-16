@@ -85,7 +85,7 @@ if st.button("Submit"):
             st.header(format)
             st.write(current_role)
             
-           #Work Summary
+           #Work Summary - Display
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
@@ -100,6 +100,10 @@ if st.button("Submit"):
             st.header(format)
             st.write(summary)
 
+            #Work Summary - Suggest
+            
+    
+            #Work Summary - Rewrite
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
