@@ -92,8 +92,16 @@ if st.button("Submit"):
             st.header(format)
             st.write(summary)'''
 
+            # Create a radio button input
+            selected_option = st.radio("Select an option", ["Option 1", "Option 2", "Option 3"])
+
+            # Create a submit button
+            if st.button("Submit"):
+                # Display the selected option when the submit button is clicked
+                st.write(f"Selected Option: {selected_option}")
+    
             #Work Summary - Suggest
-            with st.form("my_form"):
+            '''with st.form("my_form"):
                suggest_summary = st.radio(
                 "How do you wish to rewrite the summary?",
                 [
@@ -111,7 +119,7 @@ if st.button("Submit"):
             st.write(suggest_summary)
     
             #Work Summary - Rewrite
-            '''prompt_summary_rewrite += suggest_summary
+            prompt_summary_rewrite += suggest_summary
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
