@@ -5,11 +5,7 @@ import requests
 from PyPDF2 import PdfReader
 import openai
 
-import os
-
-os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
-
-openai.api_key = os.environ.get('OPENAI_API_KEY')
+openai.api_key = st.secrets['OPENAI_API_KEY']
 completion = openai.ChatCompletion()
 
 st.markdown("""
