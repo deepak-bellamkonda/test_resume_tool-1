@@ -54,8 +54,7 @@ if st.button("Submit"):
             #test
             genre = st.radio(
                 "What's your favorite movie genre",
-                [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],
-                index=None,
+                [":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"]
             )
             st.write("You selected:", genre)
             
