@@ -6,7 +6,7 @@ from PyPDF2 import PdfReader
 import openai
 
 openai.api_key = st.secrets['OPENAI_API_KEY']
-completion = openai.ChatCompletion()
+completion = openai.Completion()
 
 st.markdown("""
 <style>
