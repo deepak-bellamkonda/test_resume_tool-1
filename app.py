@@ -127,7 +127,7 @@ if st.button("Submit"):
             st.write(summary_suggest)
     
             #Educational Background
-            '''response = completion.create(
+            response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_education_display},
@@ -262,4 +262,4 @@ if st.button("Submit"):
             st.write(sh2)
             st.write(extra_rewrite)
             st.write(sh3)
-            st.write(extra_suggest)'''
+            st.write(extra_suggest)
