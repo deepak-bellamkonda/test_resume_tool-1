@@ -127,7 +127,7 @@ if st.button("Submit"):
             response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                { "role": "system","content": prompt_skils_display},
+                { "role": "system","content": prompt_skills_display},
                 {"role": "user","content": segment}
                 ],
                 temperature = 0
