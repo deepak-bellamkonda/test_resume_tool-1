@@ -101,22 +101,24 @@ if st.button("Submit"):
                     " Highlight the industry diversity and experience"
                 ]
             )
+
+            if st.button("Submit"):
     
             #Work Summary - Rewrite
-            prompt_summary_rewrite += suggest_summary
-            response = completion.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                { "role": "system","content": prompt_summary_rewrite},
-                {"role": "user","content": summary}
-                ],
-                temperature = 0
-            )
-    
-            rewrite_summary = response.choices[0]['message']['content']
-            format="Your rewritten work summary is :"
-            st.header(format)
-            st.write(rewrite_summary)
+                prompt_summary_rewrite += suggest_summary
+                response = completion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                    { "role": "system","content": prompt_summary_rewrite},
+                    {"role": "user","content": summary}
+                    ],
+                    temperature = 0
+                )
+        
+                rewrite_summary = response.choices[0]['message']['content']
+                format="Your rewritten work summary is :"
+                st.header(format)
+                st.write(rewrite_summary)
     
             #Educational Background
             '''prompt_4=list_of_prompts[3] + output
