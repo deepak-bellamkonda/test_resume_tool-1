@@ -68,7 +68,7 @@ if st.button("Submit"):
             }]
             response = openai.Completion.create(
                 engine="gpt-3.5-turbo",
-                messages=prompt_1
+                message=prompt_1
             )
 
             output = response.choices[0].text.strip()
