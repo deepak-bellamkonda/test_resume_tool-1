@@ -124,7 +124,7 @@ if st.button("Submit"):
             st.write(education)
 
             #Skills
-             response = completion.create(
+            response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_skils_display},
@@ -139,7 +139,7 @@ if st.button("Submit"):
             st.write(skills)
 
             #Extracurriculars
-             response = completion.create(
+            response = completion.create(
                 model="gpt-3.5-turbo",
                 messages=[
                 { "role": "system","content": prompt_extra_display},
