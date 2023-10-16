@@ -48,7 +48,7 @@ if st.button("Submit"):
                     #text += page.extract_text()
                     text = "\n".join([text,page.extract_text()])
 
-                #st.write(text)
+                st.write(text)
 
                 #st.write(decoded_content)
             else:
