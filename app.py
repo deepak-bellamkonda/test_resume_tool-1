@@ -95,10 +95,10 @@ if st.button("Submit"):
                 temperature = 0
             )
     
-            current_role = response.choices[0]['message']['content']
+            summary = response.choices[0]['message']['content']
             format="Your work summary is :"
             st.header(format)
-            st.write(outputs)
+            st.write(summary)
 
             #Educational Background
             '''prompt_4=list_of_prompts[3] + output
