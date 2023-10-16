@@ -59,16 +59,13 @@ if st.button("Submit"):
             prompt7 = "Extract the work experience from the resume and and put it in chronological order"
           
             #Resume Segmentation
-            prompt_1=[{
-                'role': 'system',
-                'content': prompt1,
-            },{
-                'role': 'user',
-                'content': text
-            }]
+            prompt_1=[
+                { "role": "system","content": prompt1},
+                {"role": "user","content": text}
+            ]
             response = openai.Completion.create(
-                engine="gpt-3.5-turbo",
-                message=prompt_1
+                model="gpt-3.5-turbo",
+                messages=prompt_1
             )
 
             output = response.choices[0].text.strip()
