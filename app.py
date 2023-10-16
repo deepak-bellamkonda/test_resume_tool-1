@@ -61,6 +61,7 @@ if st.button("Submit"):
                 temperature = 0
             )
             segment = response.choices[0]['message']['content']
+            st.write(segment)
     
             #Current Role
             response = completion.create(
