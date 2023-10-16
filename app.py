@@ -67,8 +67,7 @@ if st.button("Submit"):
                 model="gpt-3.5-turbo",
                 messages=prompt_1
             )
-
-            output = response.choices[0].text.strip()
+            output = response.choices[0]['message']['content']
     
             #Current Role
             '''prompt_2=list_of_prompts[1] + output
