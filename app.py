@@ -60,25 +60,24 @@ if st.button("Submit"):
             prompt8 = "Extract the work experience from the resume and and put it in chronological order"
           
             #Resume Segmentation
-            prompt_1=[
-                { "role": "system","content": prompt1},
-                {"role": "user","content": text}
-            ]
             response = completion.create(
                 model="gpt-3.5-turbo",
-                messages=prompt_1
+                messages=[
+                { "role": "system","content": prompt1},
+                {"role": "user","content": text}
+                ]
             )
             segment = response.choices[0]['message']['content']
     
             #Current Role
-            prompt_2=[
-                { "role": "system","content": prompt2},
-                {"role": "user","content": segment}
-            ]
             response = completion.create(
                 model="gpt-3.5-turbo",
-                messages=prompt_1
+                messages=[
+                { "role": "system","content": prompt2},
+                {"role": "user","content": segment}
+                ]
             )
+    
             current_role = response.choices[0]['message']['content']
             format="The current role you are working in :"
             st.header(format)
