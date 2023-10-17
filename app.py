@@ -75,6 +75,7 @@ if st.button("Submit"):
             current_role = response.choices[0]['message']['content']
             h1 ="Current Role"
             sh1 = "What you have written"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(current_role)
@@ -117,12 +118,13 @@ if st.button("Submit"):
             sh1 = "What you have written"
             sh2 = "What we suggest"
             sh3 = "Further Improvements"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(summary)
-            st.write(sh2)
+            st.subheader(sh2)
             st.write(summary_rewrite)
-            st.write(sh3)
+            st.subheader(sh3)
             st.write(summary_suggest)
 
             #Work Experiences
@@ -163,12 +165,13 @@ if st.button("Submit"):
             sh1 = "What you have written"
             sh2 = "What we suggest"
             sh3 = "Further Improvements"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(workex)
-            st.write(sh2)
+            st.subheader(sh2)
             st.write(workex_rewrite)
-            st.write(sh3)
+            st.subheader(sh3)
             st.write(workex_suggest)
     
             #Educational Background
@@ -209,12 +212,13 @@ if st.button("Submit"):
             sh1 = "What you have written"
             sh2 = "What we suggest"
             sh3 = "Further Improvements"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(education)
-            st.write(sh2)
+            st.subheader(sh2)
             st.write(education_rewrite)
-            st.write(sh3)
+            st.subheader(sh3)
             st.write(education_suggest)
     
             #Skills
@@ -255,12 +259,13 @@ if st.button("Submit"):
             sh1 = "What you have written"
             sh2 = "What we suggest"
             sh3 = "Further Improvements"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(skills)
-            st.write(sh2)
+            st.subheader(sh2)
             st.write(skills_rewrite)
-            st.write(sh3)
+            st.subheader(sh3)
             st.write(skills_suggest)
     
             #Extracurriculars
@@ -301,10 +306,11 @@ if st.button("Submit"):
             sh1 = "What you have written"
             sh2 = "What we suggest"
             sh3 = "Further Improvements"
+            st.divider()
             st.header(h1)
             st.subheader(sh1)
             st.write(extra)
-            st.write(sh2)
+            st.subheader(sh2)
             st.write(extra_rewrite)
-            st.write(sh3)
+            st.subheader(sh3)
             st.write(extra_suggest)
