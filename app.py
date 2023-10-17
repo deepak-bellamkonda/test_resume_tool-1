@@ -124,6 +124,52 @@ if st.button("Submit"):
             st.write(summary_rewrite)
             st.write(sh3)
             st.write(summary_suggest)
+
+            #Work Experiences
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_workex_display},
+                {"role": "user","content": segment}
+                ],
+                temperature = 0
+            )
+    
+            workex = response.choices[0]['message']['content']
+            
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_workex_rewrite},
+                {"role": "user","content": workex}
+                ],
+                temperature = 0
+            )
+    
+            workex_rewrite = response.choices[0]['message']['content']
+
+            response = completion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                { "role": "system","content": prompt_workex_suggest},
+                {"role": "user","content": summary_rewrite}
+                ],
+                temperature = 0
+            )
+    
+            workex_suggest = response.choices[0]['message']['content']
+            
+            h1 ="Work Experiences"
+            sh1 = "What you have written"
+            sh2 = "What we suggest"
+            sh3 = "Further Improvements"
+            st.header(h1)
+            st.subheader(sh1)
+            st.write(workex)
+            st.write(sh2)
+            st.write(workex_rewrite)
+            st.write(sh3)
+            st.write(workex_suggest)
     
             #Educational Background
             response = completion.create(
