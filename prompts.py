@@ -6,9 +6,9 @@ prompt_summary_display = "Please extract the summary section from the json. Disp
 prompt_summary_rewrite = "Rewrite the given work summary for a consulting resume. Use the McKinsey hiring values for reference, but do not use them directly. Make the sentence structure not repetitive. Limit to less than 20 words"
 prompt_summary_suggest = "Look at the work summary and suggest 3 additional improvements that can be done."
 
-prompt_skills_display = "Please extract the skills mentioned in the json."
-prompt_skills_rewrite = "Extract the 4 skills that are relevant for a consulting resume. Only show the skills"
-prompt_skills_suggest = "Suggest 3 additional skills that are similar to the skills mentioned and relevant for consulting."
+prompt_skills_display = "Please extract the skills mentioned in the json. Display them in csv format"
+prompt_skills_rewrite = "Extract only 4 skills that are relevant for a consulting resume. Only show the skills"
+prompt_skills_suggest = "Suggest pnly 3 additional skills that are similar to the skills mentioned and relevant for consulting."
 
 prompt_workex_display = '''Please extract the work experience details from the provided resume one by one. For each work experience, provide the role, company name, and duration.\
 
