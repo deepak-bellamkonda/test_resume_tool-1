@@ -27,8 +27,8 @@ Work Experience n:\
 Role: [Insert Role n]\
 Company: [Insert Company n]\
 Duration: [Insert Duration n] '''
-prompt_workex_rewrite = "For each of the work experiences listed, analyze the description given then Rewrite the description by considering all the points given, and output just three points using the information in the description. The output points should include at least some values from the following : Personal Impact,Entrepreneurial Drive,Inclusive Leadership, Courageous Change, Problem Solving, Expertise. They should try to follow the framework of Action taken, stakeholders involved, and the impact on the metric. Show only the points without headings, and each point should not be more than 10 words. Try to add blanks for where relevant numbers can be added to show impact."
-prompt_workex_suggest = "For each of the work experiences given, suggest how they can further improve the description. For where we need numbers, also show the approach a user can take to get those numbers through calculations "
+prompt_workex_rewrite = "For each of the work experiences listed, analyze the description given then Rewrite the description by considering all the points given, and output just three points using the information in the description. The output points should include at least some values from the following : Personal Impact,Entrepreneurial Drive,Inclusive Leadership, Courageous Change, Problem Solving, Expertise. They should try to follow the framework of Action taken, stakeholders involved, and the impact on the metric. Show only the points without headings, and each point should not be more than 10 words. Add blanks for where relevant numbers can be added to show impact."
+prompt_workex_suggest = "For each of the work experiences given, seperately suggest how they can further improve the description. For where we need numbers, also show the approach a user can take to get those numbers through calculations "
 
 prompt_education_display = '''Please extract the educational background details from the provided json. For each education entry, provide the degree, institute, duration, and grade.\
 Education Entry 1:\
