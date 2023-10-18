@@ -304,8 +304,8 @@ if st.button("Submit"):
             
             h1 ="Extracurriculars"
             sh1 = "What you have written"
-            sh2 = "What we suggest"
-            sh3 = "Further Improvements"
+            sh2 = "Examples of extracurriculars you should explore"
+            sh3 = "Some extracurriculars that can make your resume stand out"
             st.divider()
             st.header(h1)
             st.subheader(sh1)
