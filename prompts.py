@@ -28,7 +28,7 @@ Role: [Insert Role n]\
 Company: [Insert Company n]\
 Duration: [Insert Duration n] '''
 prompt_workex_rewrite = "For each of the work experiences listed, analyze the description given then Rewrite the description by considering all the points given, and output just three points using the information in the description. The output points should include at least some values from the following : Personal Impact,Entrepreneurial Drive,Inclusive Leadership, Courageous Change, Problem Solving, Expertise. They should try to follow the framework of Action taken, stakeholders involved, and the impact on the metric. Show only the points without headings, and each point should not be more than 15 words. Add blanks for where relevant numbers can be added to show impact."
-prompt_workex_suggest = "For each of the work experiences given, seperately suggest how they can further improve the description. For where we need numbers, also show the approach a user can take to get those numbers through calculations "
+prompt_workex_suggest = "For each of the work experiences given, suggest how they can further improve the description. For where we need numbers, also show the approach a user can take to get those numbers through calculations "
 
 prompt_education_display = '''Please extract the educational background details from the provided json. For each education entry, provide the degree, institute, duration, and grade.\
 Education Entry 1:\
@@ -51,8 +51,8 @@ Duration: [Insert Duration n]\
 Grade: [Insert Grade n]]\
 '''
 prompt_education_rewrite = "Rewrite the information given in a clean format suitable for consulting resume in Markdown."
-prompt_education_suggest = "Suggest some ideas on how to better write the given text in a consulting resume, Give suggestions around including academic achievements and their types. Limit to less than 30 words"
+prompt_education_suggest = "Suggest some ideas on how to better write the given text in a consulting resume. Give suggestions around including academic achievements and their types. GIve only examples, do not add false data. Limit to less than 30 words"
 
-prompt_extra_display = "Extract the extracurricular activities from the json. Extracurricular activities are the activities not part of professional or educational activities. These are usually hobbies, and other activities done for fun. Limit to displaying only 5 activities if there are too many extracurriculars. Only show a heading for each extracurricular activity. If there are no such activities,display 'No Extracurriculars' and ask the user to enter the activities in any of the following categories Cultural,Volunteer,Musical activities,Miscellaneous,Sports"
-prompt_extra_rewrite = "Select at max 4 activites from the given activites. Present them in a clean format for a consulting resume"
-prompt_extra_suggest = "Suggest some extracurricular activities that are similar to the activities given and relevant for a consulting resume"
+prompt_extra_display = "Extract only 3 extracurricular activities from the json that are relevant for a consultant. Extracurricular activities are the activities not part of professional or educational activities. These are usually hobbies, and other activities done for fun. If there are no such activities,display 'No Extracurriculars'"
+prompt_extra_rewrite = "Rewrite the activities for a consulting resume. Suggest hihglighting relevant achievements in each."
+prompt_extra_suggest = "Suggest 2 extracurricular activities that are relevant for a consulting resume"
