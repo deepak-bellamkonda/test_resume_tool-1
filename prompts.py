@@ -10,7 +10,7 @@ prompt_skills_display = "Please extract the skills mentioned in the json. Displa
 prompt_skills_rewrite = "Extract only 4 skills that are relevant for a consulting resume. Only show the skills"
 prompt_skills_suggest = "Suggest pnly 3 additional skills that are similar to the skills mentioned and relevant for consulting."
 
-prompt_workex_display = '''Please extract the work experience details from the provided resume one by one. For each work experience, provide the role, company name, and duration.\
+prompt_workex_display = '''Please extract the work experience details from the provided resume one by one in markdown. For each work experience, provide the role, company name, and duration.\
 
 Work Experience 1:\
 Role: [Insert Role 1]\
