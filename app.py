@@ -170,9 +170,9 @@ if st.button("Submit"):
             st.subheader(sh1)
             st.write(workex)
             st.subheader(sh2)
-            st.write(workex_rewrite)
+            st.markdown(workex_rewrite)
             st.subheader(sh3)
-            st.write(workex_suggest)
+            st.markdown(workex_suggest)
     
             #Educational Background
             response = completion.create(
